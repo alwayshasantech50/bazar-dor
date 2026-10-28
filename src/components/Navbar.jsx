@@ -1,9 +1,9 @@
 import Link from "next/link";
 import BanglaDate from "./BanglaDate";
+import { Suspense } from "react";
+import CategoryNav from "./CategoryNav";
 
 const Navbar = () => {
-  
-
   return (
     <header className="border-b border-gray-200 bg-white">
       <nav
@@ -22,10 +22,7 @@ const Navbar = () => {
         </Link>
 
         <div className="flex items-center gap-2">
-          <Link
-            href="/signin"
-            className="btn btn-ghost btn-sm sm:btn-md"
-          >
+          <Link href="/signin" className="btn btn-ghost btn-sm sm:btn-md">
             সাইন ইন
           </Link>
 
@@ -37,6 +34,22 @@ const Navbar = () => {
           </Link>
         </div>
       </nav>
+      <div className="border-t border-gray-100">
+        <Suspense
+          fallback={
+            <div className="mx-auto flex max-w-6xl gap-2 overflow-hidden px-4 py-3">
+              {Array.from({ length: 8 }).map((_, index) => (
+                <div
+                  key={index}
+                  className="skeleton h-9 w-20 shrink-0 rounded-lg"
+                />
+              ))}
+            </div>
+          }
+        >
+          <CategoryNav />
+        </Suspense>
+      </div>
     </header>
   );
 };

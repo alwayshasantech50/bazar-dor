@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
+import { headers } from "next/headers";
+import { auth } from "@/lib/auth";
 
 const unitNames = {
   kg: "কেজি",
@@ -40,6 +42,14 @@ const ProductDetailsPage = async ({ params }) => {
 
   if (!product) {
     notFound();
+  }
+
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
+
+  if (!session) {
+    redirect("/signin?reason=login-required");
   }
 
   const markets = product.markets ?? [];
@@ -89,9 +99,9 @@ const ProductDetailsPage = async ({ params }) => {
 
   const averagePrice = markets.length
     ? markets.reduce(
-        (total, market) => total + (market.min + market.max) / 2,
-        0
-      ) / markets.length
+      (total, market) => total + (market.min + market.max) / 2,
+      0
+    ) / markets.length
     : null;
 
   const summaryCards = [

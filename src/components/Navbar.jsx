@@ -3,6 +3,7 @@ import BanglaDate from "./BanglaDate";
 import { Suspense } from "react";
 import CategoryNav from "./CategoryNav";
 import PriceTicker from "./PriceTicker";
+import NavbarAuth from "./NavbarAuth";
 
 const Navbar = () => {
   return (
@@ -22,18 +23,7 @@ const Navbar = () => {
           </div>
         </Link>
 
-        <div className="flex items-center gap-2">
-          <Link href="/signin" className="btn btn-ghost btn-sm sm:btn-md">
-            সাইন ইন
-          </Link>
-
-          <Link
-            href="/signup"
-            className="btn btn-sm border-0 bg-green-700 text-white hover:bg-green-800 sm:btn-md"
-          >
-            সাইন আপ
-          </Link>
-        </div>
+        <NavbarAuth />
       </nav>
       <div className="border-t border-gray-100">
         <Suspense

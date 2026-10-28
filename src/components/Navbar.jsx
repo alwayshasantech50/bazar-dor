@@ -2,6 +2,7 @@ import Link from "next/link";
 import BanglaDate from "./BanglaDate";
 import { Suspense } from "react";
 import CategoryNav from "./CategoryNav";
+import PriceTicker from "./PriceTicker";
 
 const Navbar = () => {
   return (
@@ -50,6 +51,15 @@ const Navbar = () => {
           <CategoryNav />
         </Suspense>
       </div>
+      <Suspense
+        fallback={
+          <div className="border-t border-gray-100 px-4 py-2">
+            <div className="skeleton h-4 w-full" />
+          </div>
+        }
+      >
+        <PriceTicker />
+      </Suspense>
     </header>
   );
 };

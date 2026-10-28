@@ -1,6 +1,6 @@
 import ProductCard from "./ProductCard";
 
-const ProductPreview = async () => {
+const AllProducts = async () => {
   const response = await fetch(
     "https://openapi.programming-hero.com/api/bazardor/products",
     {
@@ -17,17 +17,18 @@ const ProductPreview = async () => {
   }
 
   const products = await response.json();
-  const firstProduct = products[0];
 
-  if (!firstProduct) {
+  if (products.length === 0) {
     return <p className="text-gray-600">কোনো পণ্য পাওয়া যায়নি।</p>;
   }
 
   return (
-    <div className="max-w-sm">
-      <ProductCard product={firstProduct} />
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {products.map((product) => (
+        <ProductCard key={product.id} product={product} />
+      ))}
     </div>
   );
 };
 
-export default ProductPreview;
+export default AllProducts;

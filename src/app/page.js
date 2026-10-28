@@ -1,17 +1,24 @@
+import { Suspense } from "react";
+import ProductPreview from "@/components/ProductPreview";
+
 const HomePage = () => {
   return (
-    <main className="mx-auto max-w-6xl px-4 py-12">
-      <div className="rounded-2xl border border-gray-200 bg-white p-6">
-        <h1 className="text-3xl font-bold">🛒 বাজার দর</h1>
+    <main className="mx-auto max-w-6xl px-4 py-10">
+      <h1 className="text-2xl font-bold">আজকের বাজার দর</h1>
 
-        <p className="mt-3 text-gray-600">
-          প্রয়োজনীয় পণ্যের দাম এক নজরে।
-        </p>
+      <p className="mt-2 text-gray-500">
+        প্রথমে একটি পণ্যের কার্ড দেখি।
+      </p>
 
-        <button className="btn mt-6 border-0 bg-green-600 text-white hover:bg-green-700">
-          শুরু করি
-        </button>
-      </div>
+      <section className="mt-6" aria-label="পণ্যের প্রিভিউ">
+        <Suspense
+          fallback={
+            <div className="skeleton h-40 w-full max-w-sm rounded-2xl" />
+          }
+        >
+          <ProductPreview />
+        </Suspense>
+      </section>
     </main>
   );
 };

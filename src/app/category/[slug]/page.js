@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import ProductCard from "@/components/ProductCard";
+import CategoryProducts from "@/components/CategoryProducts";
 
 const CategoryPage = async ({ params }) => {
   const { slug } = await params;
@@ -77,17 +77,7 @@ const CategoryPage = async ({ params }) => {
         </div>
       </section>
 
-      <section className="mt-8" aria-label="বিভাগের পণ্য">
-        <p className="mb-4 text-sm text-gray-500">
-          মোট {products.length.toLocaleString("bn-BD")}টি পণ্য পাওয়া গেছে।
-        </p>
-
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
-      </section>
+      <CategoryProducts products={products} />
     </main>
   );
 };

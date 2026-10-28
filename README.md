@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Project name
+ 🛒 বাজার দর / BazarDor
 
-## Getting Started
 
-First, run the development server:
+# Short description 
+BazarDor is a responsive market-price application for exploring everyday
+essential products in Bangladesh. Users can compare prices, browse
+categories, view price changes, and check market-specific prices.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Technologies Used
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- **Next.js App Router**
+- **React**
+- **JavaScript**
+- **Tailwind CSS**
+- **DaisyUI**
+- **Better Auth**
+- **MongoDB Atlas** 
+- **React Hot Toast** 
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## 5 Key Features
 
-To learn more about Next.js, take a look at the following resources:
+1. **Daily Price Overview**  
+   Explore all products, the top six price increases, and the top six
+   price decreases. Prices and percentages display in Bengali digits.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. **Category Browsing and Sorting**  
+   Browse products by category and sort prices numerically from lowest
+   to highest or highest to lowest.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Protected Product Details**  
+   Signed-in users can view product information, minimum and maximum
+   prices, calculated average prices, and market-specific price tables.
 
-## Deploy on Vercel
+4. **Multiple Authentication Options**  
+   Register with email and password or authenticate using Google and
+   GitHub. Receive feedback through toast notifications.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+5. **Profile Information Updates**  
+   View account information and update the display name through a
+   separate profile-update page using Better Auth.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+6. **Responsive Design and Loading States**  
+   Browse on mobile, tablet, and desktop with loading skeletons,
+   friendly 404 pages, and a scrolling price ticker.
+

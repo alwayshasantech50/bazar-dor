@@ -3,10 +3,21 @@ import Link from "next/link";
 const ProductCard = ({ product }) => {
   const unitNames = {
     kg: "কেজি",
+    litre: "লিটার",
     liter: "লিটার",
     dozen: "ডজন",
     piece: "পিস",
   };
+
+  // Replace newer emojis that some devices cannot display.
+  const emojiReplacements = {
+    "🫘": "🌰",
+    "🫙": "🛢️",
+    "🫚": "🌿",
+  };
+
+  const productEmoji =
+    emojiReplacements[product.image] || product.image;
 
   const isUp = product.change.dir === "up";
   const isDown = product.change.dir === "down";
@@ -35,8 +46,16 @@ const ProductCard = ({ product }) => {
       className="block rounded-2xl border border-gray-200 bg-white p-4 transition-shadow hover:shadow-md"
     >
       <div className="flex items-center gap-3">
-        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#f0f5f1] text-3xl">
-          {product.image}
+        <span
+          role="img"
+          aria-label={product.nameBn}
+          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#f0f5f1] text-3xl"
+          style={{
+            fontFamily:
+              '"Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif',
+          }}
+        >
+          {productEmoji}
         </span>
 
         <div>
